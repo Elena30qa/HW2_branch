@@ -1,0 +1,81 @@
+1. На локальном репозитории сделать ветки для:
+- Postman
+git branch Postman
+- Jmeter
+git branch Jmeter
+- CheckLists
+git branch CheckLists
+- Bag Reports
+git branch Bag_Reports
+- SQL
+git branch SQL
+- Charles
+git branch Charles
+- Mobile testing
+git branch Mobile_testing
+
+2. Запушить все ветки на внешний репозиторий
+ git push -u origin Postman
+ git push -u origin Jmeter
+ git push -u origin CheckLists
+ git push -u origin Bag_Reports
+ git push -u origin SQL
+ git push -u origin Charles
+ git push -u origin Mobile_testing
+
+3. В ветке Bag Reports сделать текстовый документ со структурой баг репорта
+git checkout cat > bug_report.txt
+"ID": 1568,
+"Summary": "Нет выпадающего списка аудиофайлов при клике мышкой на вкладку 'Название аудиосказки'",
+"Prodject": "Аудиосказки для детей от трех до семи лет",
+"Version": "1.2.9",
+"Severity": "высокая",
+"Priority": "высокий",
+"Status": "открытый",
+"Author": "Елена",
+"Executor": "Алексей",
+"Actual result": "Не выбрать аудиосказку для прослушивания",
+"Expected result": "должен выпадать список аудиосказок для прослушивания"Bag_Reports
+
+4. Запушить структуру багрепорта на внешний репозиторий
+git add bug_report.txt
+git commit -m "add the file bug_report"
+git push
+
+5. Вмержить ветку Bag Reports в Main
+ git checkout main
+ git merge Bag_Reports -m "merge Bag_Reports"
+
+6. Запушить main на внешний репозиторий.
+ git push -u origin main
+
+7. В ветке CheckLists набросать структуру чек листа.
+git checkout CheckLists
+ cat > checklist1.txt
+1. Номер 1
+2. При клике мышкой выпадает список аудиофайлов
+3. Выполняется
+4. Номер 2
+5. При выборе из списка файл воспроизводится
+6. Выполняется
+enter
+Ctrl C
+
+8. Запушить структуру на внешний репозиторий
+git add checklist1.txt
+git commit -m "add the checklist file"
+git push
+
+9. На внешнем репозитории сделать Pull Request ветки CheckLists в main
+Compare&pull request 
+Копируем add the… и вставляем в поле ниже и нажимаем Create pull request 
+Resolve conflicts 
+Merge pull request
+Confirm merge  
+
+10. Синхронизировать Внешнюю и Локальную ветки Main
+ git checkout main
+ git fetch
+ git pull
+
+
